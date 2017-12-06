@@ -1,0 +1,17 @@
+<view class="main">
+   
+</view>
+<view class='nav'>
+  <view class='on'>
+    <text class="fa fa-calendar-o"></text>
+    <text class='title'>预约</text>
+  </view>
+  <view bindtap="goPage" data-page='charge'>
+    <text class="fa fa-money"></text>
+    <text class='title'>充值</text>
+  </view>
+  <view bindtap="goPage" data-page='account'>
+    <text class="fa fa-user"></text>
+    <text class='title'>我的</text>
+  </view>
+</view>

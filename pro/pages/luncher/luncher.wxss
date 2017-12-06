@@ -1,0 +1,9 @@
+/* pages/luncher.wxss */
+.view-luncher{
+  width: 100%;
+  height: 100%;
+}
+.view-luncher image{
+  width: 100%;
+  height: 100%;
+}
