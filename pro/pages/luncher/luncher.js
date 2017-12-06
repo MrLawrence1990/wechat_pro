@@ -29,8 +29,9 @@ Page({
     wx.login({
       success:function(res){
         if(res.code){
+          console.log(res)
           wx.request({
-            url: 'https://25641805.qcloud.la/sns/jscode2session',
+            url: 'http://localhost:3000/users/regWechatUser',
             data:{
               js_code:res.code,
               appid:"wx11a30002c58bcc40",
