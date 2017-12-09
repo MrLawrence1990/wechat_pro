@@ -62,3 +62,71 @@ page{
 .nav view text.title{
   font-size:  26rpx;
 }
+.tips{
+  position: absolute;
+  background: #dd514c;
+  right: -500rpx;
+  top: 24rpx;
+  z-index: 100;
+  box-shadow: -8rpx 8rpx 12rpx #888888;
+  width: 360rpx;
+  min-height: 60rpx;
+  border-radius: 14rpx;
+  animation: moveoutleft 800ms, 200ms;
+  color: white;
+  text-align: center;
+  font-size: 36rpx;
+  padding: 12rpx;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.tips.shake{
+  right: 24rpx;
+  animation: shake 500ms, 100ms;
+}
+
+.tips.show{
+  right:24rpx;
+  animation: bounceInRight 500ms, 100ms;
+}
+@keyframes shake {
+  from, to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes moveoutleft {
+	0% {
+		right: 24rpx
+	}
+	80% {
+		right: 70rpx
+	}
+	100% {
+		right: -500rpx
+	}
+}
+
+@keyframes bounceInRight {
+	0% {
+		right: -500rpx
+	}
+	70% {
+		right: 70rpx
+	}
+	90% {
+		right: 18rpx
+	}
+	100% {
+		right: 24rpx
+	}
+}

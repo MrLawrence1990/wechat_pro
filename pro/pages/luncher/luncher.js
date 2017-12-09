@@ -5,14 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    showtips:"",
+    tips:false,
+    msg:""
   },
-
+  error:function(msg){
+    this.setData({
+      showtips: "shake",
+      tips:true,
+      msg:msg
+    })
+    this.closeTips();
+  },
+  tips:function(){
+    this.setData({
+      showtips: "show",
+      tips: true,
+      msg: msg
+    })
+    this.closeTips();
+  },
+  closeTips:function(){
+    const that=  this;
+    setTimeout(function () {
+      that.setData({
+        showtips: ""
+      })
+    }, 1800);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.error("msmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgg");
   },
 
   /**
@@ -26,22 +51,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.login({
-      success:function(res){
-        if(res.code){
-          console.log(res)
-          wx.request({
-            url: 'http://localhost:3000/users/regWechatUser',
-            data:{
-              js_code:res.code,
-              appid:"wx11a30002c58bcc40",
-              secret:"8797afba30707d049b747457a3a59e05",
-              grant_type:"authorization_code"
-            }
-          })
-        }
-      }
-    });
+    /*
+    新用户注册
+    */
+    const user = getApp();
+    const b = user.globalData.userInfo;
     return;
     setTimeout(function () {
       wx.redirectTo({
