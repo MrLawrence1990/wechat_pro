@@ -1,1 +1,69 @@
 /* pages/reserve/reserve.wxss */
+
+.main .reserve {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.reserve .item {
+  height: 320rpx;
+  padding: 12rpx;
+  padding-right: 12rpx;
+}
+
+.item .ground {
+  box-shadow: 2rpx 1rpx 2rpx 1rpx #ccc;
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+  position: relative;
+}
+
+.ground image.bg {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.ground text {
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  margin: 18rpx;
+}
+
+.ground .status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 80rpx;
+  height: 80rpx;
+  padding: 8rpx;
+}
+
+.status image {
+  width: 100%;
+  height: 100%;
+}
+
+.item .shadow {
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12rpx;
+  text-align: center;
+}
+
+.shadow text{
+  margin: 0;
+  transform:translate(-50%,0%);
+  top:50%;
+  rotate:20deg;
+}

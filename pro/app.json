@@ -5,12 +5,36 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/charge/charge",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/reserveInfo/reserveInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#dd514c",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/reserve/reserve",
+        "iconPath": "source/img/calendar.png",
+        "text": "预约",
+        "selectedIconPath": "source/img/calendar1.png"
+      },
+      {
+        "pagePath": "pages/charge/charge",
+        "iconPath": "source/img/money.png",
+        "text": "充值",
+        "selectedIconPath": "source/img/money1.png"
+      },
+      {
+        "pagePath": "pages/account/account",
+        "iconPath": "source/img/user.png",
+        "text": "我的",
+        "selectedIconPath": "source/img/user1.png"
+      }
+    ]
   }
 }

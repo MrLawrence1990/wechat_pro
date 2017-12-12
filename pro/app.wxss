@@ -37,7 +37,7 @@ page{
 }
 .main{
   width: 100%;
-  height: calc(100% - 120rpx);
+  height: 100%;
 }
 .nav{
   width: 100%;

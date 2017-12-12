@@ -37,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.error("msmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgmsgg");
+    
   },
 
   /**
@@ -54,11 +54,8 @@ Page({
     /*
     新用户注册
     */
-    const user = getApp();
-    const b = user.globalData.userInfo;
-    return;
     setTimeout(function () {
-      wx.redirectTo({
+      wx.switchTab({
         url: '../reserve/reserve'
       })
     }, 2000)

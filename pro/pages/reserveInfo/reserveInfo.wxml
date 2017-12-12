@@ -1,0 +1,14 @@
+<view class='tips {{showtips}}' wx:if='{{tips}}'>{{msg}}</view>
+<view class="main">
+  <view class='reserveInfo'>
+      <view>
+        <image class='bg' wx:if='{{groundInfo.ground_type==0}}' src='../../source/img/all.png'></image>
+        <image class='bg' wx:if='{{groundInfo.ground_type==1}}' src='../../source/img/half.png'></image>
+      </view>
+  </view>
+  <view class='reserve-form'>
+    <input placeholder='预约电话'></input>
+    <input placeholder='预约时段' disabled='disabled' value='{{time_type_text}}' bindtap='showReserve'></input>
+  </view>
+  <button class='reserve'>预约</button>
+</view>
