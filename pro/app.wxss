@@ -130,3 +130,50 @@ page{
 		right: 24rpx
 	}
 }
+
+.mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+
+.load{
+  left: 0;
+	z-index: 9999999999;
+	position: absolute;
+	width: 0;
+	height: 0;
+	display: none
+}
+
+.load.loading{
+  width: 90%;
+	height: 2px;
+  display: block;
+	box-shadow: 0 2px 2px #dd514c;
+	animation: load-line 60s infinite ease-out;
+	-moz-animation: load-line 60s infinite ease-out;
+	-webkit-animation: load-line 60s infinite ease-out
+}
+
+@keyframes load-line {
+	0% {
+		width: 0
+	}
+	2% {
+		width: 50%
+	}
+	20% {
+		width: 70%
+	}
+	35% {
+		width: 82%
+	}
+	100% {
+		width: 100%
+	}
+}

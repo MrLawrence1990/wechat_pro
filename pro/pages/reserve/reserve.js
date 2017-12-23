@@ -1,3 +1,4 @@
+var util=require("../../utils/util.js");
 Page({
   data: {
     logs: [],
@@ -6,7 +7,7 @@ Page({
     tips: false,
     msg: ""
   },
-  onLoad: function () {
+  onShow: function () {
     this.setData({
       logs: null,
       groundList:[]
@@ -27,17 +28,22 @@ Page({
   },
   getGroundList:function(){
     const that = this;
-    wx.request({
-      url: 'http://localhost:3000/reserve/list',
+    that.load();
+    util.request({
+      url: getApp().appData.api +'/reserve/list',
       success: function (res) {
-        if(res.data.code==200){
+        if(res.code==200){
           that.setData({
-            groundList: res.data.data
+            groundList: res.data
           })
         }
       },
       fail: function (res) {
         that.error(res.msg);
+      },
+      complete:function(){
+        console.log("com")
+        that.closeLoad();
       }
     })
   },error: function (msg) {
@@ -48,7 +54,7 @@ Page({
     })
     this.closeTips();
   },
-  tips: function () {
+  tips: function (msg) {
     this.setData({
       showtips: "show",
       tips: true,
@@ -64,16 +70,28 @@ Page({
       })
     }, 1800);
   },
+  load:function(){
+    this.setData({
+      loading:'loading',
+      onLoad:true
+    })
+  },
+  closeLoad:function(){
+    this.setData({
+      loading: '',
+      onLoad:false
+    })
+  },
   gpReserve:function(event){
     const ground = event.currentTarget.dataset.ground;
     /*
       后续扩展 管理员可以看预约信息
     */
-    if(ground.reserve_status==1){
-      return;
-    }
+    // if (ground.reserve_status1 == 1 && ground.reserve_status2==1){
+    //   return;
+    // }
     wx.navigateTo({
-      url: "../../pages/reserveInfo/reserveInfo?groundId="+ground.id+"&groundType="+ground.ground_type
+      url: "../../pages/reserveInfo/reserveInfo?ground=" + JSON.stringify(ground)
     });
   }
 })

@@ -1,4 +1,7 @@
 <view class='tips {{showtips}}' wx:if='{{tips}}'>{{msg}}</view>
+<view class='mask' wx:if="{{loading}}">
+</view>
+<view class='load {{loading}}'></view>
 <view class="main">
   <view class='reserve'>
     <scroll-view style='width:100%;height:100%' scroll-y="true">

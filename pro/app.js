@@ -1,7 +1,12 @@
 //app.js
+var util = require("./utils/util.js");
 App({
+  appData:{
+    api:'http://localhost:8088'
+  },
   onLaunch: function () {
     // 展示本地存储能力
+    // return;
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -60,11 +65,22 @@ App({
   },
   userInfoReadyCallback: function (data) {
     const that= this;
+    console.log(that)
     wx.login({
       success: function (res) {
-        if (res.code) {
+        
+        if (res.code) {//登录凭证
+        /*
+        将登录凭证发往你的服务端，并在你的服务端使用该凭证向微信服务器换取该微信用户的唯一标识(openid)和会话密钥(session_key)
+        后台访问
+        https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
+        获得openid和session_key
+        */
           wx.request({
-            url: 'http://localhost:3000/user/regWechatUser',
+            url: that.appData.api+'/user/regWechatUser',
+            /*
+              这里做为第一次访问，产生的session
+            */
             data: {
               js_code: res.code,
               appid: "wx11a30002c58bcc40",
@@ -74,26 +90,32 @@ App({
             }, success: function (res) {
               console.log(res);
               //如果已注册，获取注册的信息，里面可能包含电话
+              /*
+              服务端生成sessionId，值为openid + session_key 保存session，返回给客户端
+              */
+              wx.setStorageSync('sessionId', res.data.data.sessionid);
+              util.request({
+                url: that.appData.api + '/user/getUser',
+                success: function (res) {
+                  console.log(res);
+                },
+                fail: function (res) {
+                  that.getCurrentPage().error(res.msg);
+                }
+              })
             },
             fail: function (res) {
               that.getCurrentPage().error(res.msg);
             }
           })
-          wx.request({
-            url: 'http://localhost:3000/user/getUser',
-            success: function (res) {
-              console.log(res);
-            },
-            fail: function (res) {
-              that.getCurrentPage().error(res.msg);
-            }
-          })
+         
         }
       }
     });
   },
   globalData: {
     userInfo: null,
-    showtips: null
+    showtips: null,
+    sessionId:null
   }
 })

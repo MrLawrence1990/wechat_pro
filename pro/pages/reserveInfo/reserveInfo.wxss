@@ -39,3 +39,16 @@ button.reserve {
   background: #dd514c;
   font-size: 30rpx;
 }
+button.reserve[disabled] {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 12rpx;
+  color: #fff;
+  border: none;
+  background: #dd514c;
+  font-size: 30rpx;
+  opacity: 0.6;
+}
