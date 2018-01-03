@@ -149,7 +149,7 @@ Page({
         }
       },
       fail: function (res) {
-        that.getCurrentPage().error(res.msg);
+        that.error(res.msg);
       },
       complete:function(){
         that.closeLoad();

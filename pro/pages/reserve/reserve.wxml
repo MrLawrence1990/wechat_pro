@@ -5,7 +5,7 @@
 <view class="main">
   <view class='reserve'>
     <scroll-view style='width:100%;height:100%' scroll-y="true">
-      <view class='item' wx:for="{{groundList}}" wx:key="id" bindtap="gpReserve" data-ground="{{item}}">
+      <view class='item' wx:for="{{groundList}}" wx:key="id" bindtap="goReserve" data-ground="{{item}}">
         <view class='ground'>
           <text>{{item.ground_name}}</text>
           <image class='bg' wx:if='{{item.ground_type==0}}' src='../../source/img/all.png'></image>

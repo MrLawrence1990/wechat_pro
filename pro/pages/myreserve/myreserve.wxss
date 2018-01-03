@@ -1,0 +1,87 @@
+/* pages/myreserve.wxss */
+
+.item {
+  margin-bottom: 60rpx;
+  box-shadow: 2rpx 2rpx 12rpx 2rpx #ccc;
+  margin: 12rpx 24rpx;
+  padding: 24rpx;
+  border-radius: 4rpx;
+  height: 40rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.item i {
+  float: right;
+}
+
+.reserve-item view.info {
+  display: block;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-left: 86rpx;
+  margin-right: 32rpx;
+  box-shadow: 6rpx 6rpx 12rpx #ddd;
+  transition-property: height opacity;
+  transition-duration: 0.4s;
+  transition-delay: 0.1s;
+  transition-timing-function: ease-in;
+}
+
+.reserve-item view.info.show {
+  display: block;
+  height: 270rpx;
+  opacity: 1;
+}
+
+.reserve-item view.info.show.btn {
+  height: 350rpx;
+}
+
+view.info view {
+  margin: 28rpx 18rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+view.info view>text {
+  float: right;
+}
+
+view.info button {
+  bottom: 0;
+  width: 30%;
+  margin-bottom: 12rpx;
+  margin-top: 12px;
+  color: #fff;
+  border: none;
+  background: #dd514c;
+  font-size: 26rpx;
+}
+
+.reserve-item .status {
+  width: 32rpx;
+  display: inline-block;
+  height: 90rpx;
+  float: left;
+  margin-left: 24rpx;
+  margin-right: 23rpx;
+  border-radius: 4px 0 0 4px;
+}
+
+.status.before {
+  background: #5cb85c;
+}
+
+.status.cancel {
+  background: #dd514c;
+}
+
+.status.ing {
+  background: #f0ad4e;
+}
+
+.status.done {
+  background: #5bc0de;
+}

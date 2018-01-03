@@ -6,7 +6,8 @@
     "pages/logs/logs",
     "pages/charge/charge",
     "pages/account/account",
-    "pages/reserveInfo/reserveInfo"
+    "pages/reserveInfo/reserveInfo",
+    "pages/myreserve/myreserve"
   ],
   "window": {
     "backgroundTextStyle": "light",

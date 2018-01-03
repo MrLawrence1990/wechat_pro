@@ -1,0 +1,29 @@
+<!--pages/myreserve.wxml-->
+<view class='tips {{showtips}}' wx:if='{{tips}}'>{{msg}}</view>
+<view class='mask' wx:if="{{loading}}">
+</view>
+<view class='load {{loading}}'></view>
+<scroll-view style='width:100%;height:100%' scroll-y="true">
+  <view class='reserve-item' wx:for="{{list}}" wx:key="{{item.id}}">
+    <view class='status {{item.orderClass}}'></view>
+    <view bindtap="showInfo" class='item' data-reserve="{{item}}">
+      {{item.time}}
+      <i class="fa {{item.show?'fa-angle-down':'fa-angle-right'}} " aria-hidden="true"></i>
+    </view>
+    <view class='info {{item.show}}'>
+      <view>预约场地
+        <text>{{item.ground}}</text>
+      </view>
+      <view>预约时间
+        <text>{{item.time}}</text>
+      </view>
+      <view>预约状态
+        <text>{{item.orderStatus}}</text>
+      </view>
+      <view>预约电话
+        <text>{{item.phone}}</text>
+      </view>
+      <button wx:if="{{item.orderStatus=='未开始'}}" data-reserve='{{item}}' bindtap='cancelReserve'>取消预约</button>
+    </view>
+  </view>
+</scroll-view>

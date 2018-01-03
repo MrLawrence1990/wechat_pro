@@ -1,1 +1,37 @@
 /* pages/account/account.wxss */
+
+.userInfo {
+  margin-bottom: 60rpx;
+  box-shadow: 2px 2px 2px 2px #eee;
+  margin: 12rpx 24rpx;
+  padding: 24rpx;
+  border-radius: 4rpx;
+  height: 100rpx;
+  margin-bottom: 60rpx;
+}
+
+.userInfo image {
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  border-radius: 50%;
+}
+.userInfo text{
+  padding-left:24rpx;
+  font-size:34rpx;
+  color: #666666;
+}
+
+.item{
+  margin-bottom: 60rpx;
+  box-shadow: 2rpx 2rpx 12rpx 2rpx #ccc;
+  margin: 12rpx 24rpx;
+  padding: 24rpx;
+  border-radius: 4rpx;
+  height: 40rpx;
+  font-size: 32rpx;
+  color: #666666;
+}
+.item i{
+  float: right;
+}

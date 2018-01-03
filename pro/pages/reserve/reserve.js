@@ -36,6 +36,8 @@ Page({
           that.setData({
             groundList: res.data
           })
+        }else{
+          that.error(res.msg);
         }
       },
       fail: function (res) {
@@ -82,7 +84,7 @@ Page({
       onLoad:false
     })
   },
-  gpReserve:function(event){
+  goReserve:function(event){
     const ground = event.currentTarget.dataset.ground;
     /*
       后续扩展 管理员可以看预约信息

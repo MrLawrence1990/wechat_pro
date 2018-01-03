@@ -56,9 +56,11 @@ App({
             "language": "zh_CN",
             "city": "Hangzhou",
             "province": "Zhejiang",
-            "country": "China", "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83epzKgKHxx2picDodbgCcWsDFscKPI4HvNDFBjd8A8Tj0nEhCI4IwTBn2GTHVnHcJDzYQvVFdpdUtwg/0"
+            "country": "China",
+            "avatarUrl": "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83epzKgKHxx2picDodbgCcWsDFscKPI4HvNDFBjd8A8Tj0nEhCI4IwTBn2GTHVnHcJDzYQvVFdpdUtwg/0"
           }
         };
+        this.globalData.userInfo = data.userInfo;
         this.userInfoReadyCallback(data)
       }
     })
@@ -94,15 +96,6 @@ App({
               服务端生成sessionId，值为openid + session_key 保存session，返回给客户端
               */
               wx.setStorageSync('sessionId', res.data.data.sessionid);
-              util.request({
-                url: that.appData.api + '/user/getUser',
-                success: function (res) {
-                  console.log(res);
-                },
-                fail: function (res) {
-                  that.getCurrentPage().error(res.msg);
-                }
-              })
             },
             fail: function (res) {
               that.getCurrentPage().error(res.msg);
